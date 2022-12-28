@@ -1,0 +1,2 @@
+Valve HH has flow rate=0; tunnel leads to valve GG
+Valve AA has flow rate=0; tunnels lead to valves DD
