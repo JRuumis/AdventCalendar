@@ -30,6 +30,7 @@ object Day8Matchsticks extends App {
 
     println(s"Number of string code minus total number of chars: ${total}")
 
+    @tailrec
     def encode(s: String, accuChars: Int = 0): Int = s match {
         case "" => accuChars+2
         case quotePattern(_,b) => encode(b, accuChars+2)
