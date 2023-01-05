@@ -10,7 +10,7 @@ object Day12Numbers2 extends App {
         val sumNoRed: Int
     }
     case class Num(i: Int) extends JsonElement {
-        override val sumAll = i
+        override val sumAll: Int = i
         override val sumNoRed: Int = i
     }
     case class Str(s: String) extends JsonElement {
@@ -18,11 +18,11 @@ object Day12Numbers2 extends App {
         override val sumNoRed: Int = 0
     }
     case class Arr(l: List[JsonElement]) extends JsonElement {
-        override val sumAll = l.map(_.sumAll).sum
+        override val sumAll: Int = l.map(_.sumAll).sum
         override val sumNoRed: Int = l.map(_.sumNoRed).sum
     }
     case class Obj(l: List[JsonElement]) extends JsonElement {
-        override val sumAll = l.map(_.sumAll).sum
+        override val sumAll: Int = l.map(_.sumAll).sum
         override val sumNoRed: Int = {
             val hasRed = l.toVector.map(_ match {
                 case Str("red")  => true
