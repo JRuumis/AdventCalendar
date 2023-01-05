@@ -1,6 +1,6 @@
 import scala.util.parsing.combinator.JavaTokenParsers
 
-object Day13DistressSignal extends App {
+object  Day13DistressSignal extends App {
 
     // -= Packet =-
     abstract class PacketData
