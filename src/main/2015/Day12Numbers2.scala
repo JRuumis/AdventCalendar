@@ -34,7 +34,7 @@ object Day12Numbers2 extends App {
     }
 
     // Parser
-    class PacketParser extends JavaTokenParsers {
+    class JsonParser extends JavaTokenParsers {
         def numberParser: Parser[Num] = """-?[0-9]+""".r ^^ { i => Num(i.toInt) }
         def stringParser: Parser[Str] = "\"" ~ "[a-z]+".r ~ "\"" ^^ { case _ ~ s ~ _ => Str(s) }
         def arrayParser: Parser[Arr]  = "[" ~ repsep(elementParser, ",") ~ "]" ^^ { case (_ ~ (elemList: List[JsonElement]) ~ _) => Arr(elemList) }
@@ -43,7 +43,7 @@ object Day12Numbers2 extends App {
         def elementParser: Parser[JsonElement] = numberParser | stringParser | arrayParser | objectParser
     }
 
-    object DoParse extends PacketParser {
+    object DoParse extends JsonParser {
         def parseInput[T](p: Parser[T], s: String): ParseResult[T] = parseAll(p, s)
     }
 
