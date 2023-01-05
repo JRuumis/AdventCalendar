@@ -24,7 +24,7 @@ object Day12Numbers2 extends App {
     case class Obj(l: List[JsonElement]) extends JsonElement {
         override val sumAll: Int = l.map(_.sumAll).sum
         override val sumNoRed: Int = {
-            val hasRed = l.toVector.map(_ match {
+            val hasRed = l.map(_ match {
                 case Str("red")  => true
                 case _ => false
             }).reduce(_ || _)
