@@ -15,7 +15,6 @@ object Day13Knights extends App {
 
     type KnightName = String
     case class Knight(knight: KnightName, neighbours: Set[KnightName]) {
-        //println(s"${knight} -> ${neighbours}")
         def happiness(knightsMap: Map[String, Map[String, Int]]): Int = neighbours.map(n => knightsMap(knight)(n)).sum
     }
 
