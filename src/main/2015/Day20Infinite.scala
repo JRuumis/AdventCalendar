@@ -18,8 +18,8 @@ object Day20Infinite extends App {
     }
 
     val houseNumberWithAtLeastAsManyPresents: Long = searchHouse(1, 10, divisors)
-    println(houseNumberWithAtLeastAsManyPresents)
+    println(s"House number with at least ${atLeastAsManyPresentsAs} presents is ${houseNumberWithAtLeastAsManyPresents}")
 
     val houseNumberWithAtLeastAsManyPresentsPartTwo: Long = searchHouse(1, 11, divisorsWithLimit(50))
-    println(houseNumberWithAtLeastAsManyPresentsPartTwo)
+    println(s"House number with at least ${atLeastAsManyPresentsAs} presents but with 50 houses per elf limit is ${houseNumberWithAtLeastAsManyPresentsPartTwo}")
 }
