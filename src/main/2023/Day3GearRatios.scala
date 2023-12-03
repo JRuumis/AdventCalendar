@@ -19,8 +19,6 @@ object Day3GearRatios extends App {
             Coord(y + 1, x),
             Coord(y + 1, x + 1)
         )
-
-        def isNeighbourOf(other: Coord) = allNeighbours contains other
     }
 
     case class EnginePart(partNumber: Int, partNumberCoords: Vector[Coord]) {
