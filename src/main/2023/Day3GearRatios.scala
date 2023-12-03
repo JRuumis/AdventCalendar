@@ -74,10 +74,10 @@ object Day3GearRatios extends App {
     // Part Two
     val gearCandidates: Vector[EngineSymbol] = allSymbols.filter(s => s.symbol == '*')
 
-    val gears: Vector[(EngineSymbol, Vector[EnginePart])] = gearCandidates
+    val gearsWithNeigbours: Vector[(EngineSymbol, Vector[EnginePart])] = gearCandidates
         .map{ gc => (gc, partsNextToSymbols.filter(_ isNeighbourOf gc)) }
         .filter{case(_,b) => b.size==2}
 
-    val gearRatioSum: Int = gears.map{ case(_,neighbourPart) => neighbourPart.map(_.partNumber).reduce(_ * _) }.sum
+    val gearRatioSum: Int = gearsWithNeigbours.map{ case(_,neighbourPart) => neighbourPart.map(_.partNumber).reduce(_ * _) }.sum
     println(s"The sum of all Gear Ratios is $gearRatioSum")
 }
