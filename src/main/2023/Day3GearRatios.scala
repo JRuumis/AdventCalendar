@@ -1,3 +1,5 @@
+import scala.annotation.tailrec
+
 object Day3GearRatios extends App {
 
     val inputRaw: Vector[String] = scala.io.Source.fromFile("./Sources/2023/Day3GearRatios.txt").getLines().toVector
@@ -28,6 +30,7 @@ object Day3GearRatios extends App {
 
     case class EngineSymbol(symbol: Char, coord: Coord)
 
+    @tailrec
     def scanLine(
                     line: Vector[Char],
                     curCoord: Coord,
