@@ -1,29 +1,15 @@
 
 
-"123".indexOf("6")
+// Creating an immutable Map
+val originalMap = Map("one" -> 1, "two" -> 2, "three" -> 3)
 
+// Updating the Map with a new key-value pair
+val updatedMap1 = originalMap + ("four" -> 4)
 
-val xxx = "abcone2one777threexyz".indexOf("one")
-println(xxx)
+// Updating the Map with a modification to an existing key-value pair
+val updatedMap2 = originalMap + ("two" -> 22)
 
-val yyy = "abcone2one777threexyz".lastIndexOf("one")
-println(yyy)
-
-
-Vector('a','b','c').mkString
-
-
-
-
-var myStr = "abc12ef4567gh90ijkl789"
-
-("""\d+""".r findAllIn myStr).toList
-myStr.split("\\D+").filter(_.nonEmpty).toList
-
-
-Vector(1,2,3) zip Vector(10,20,30)
-
-
-math.pow(2,3).intValue
-
-(0 to 0).toList
+// Displaying the original and updated Maps
+println("Original Map: " + originalMap)
+println("Updated Map 1: " + updatedMap1)
+println("Updated Map 2: " + updatedMap2)
