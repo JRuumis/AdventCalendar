@@ -28,14 +28,14 @@ object Day4Scratchcards extends App {
     println(s"Number of winning points is $winningPoints")
 
     // Part Two
-    val multipliedCards: Map[Int,Int] = cardsWithWins.map{case(c,_) => c -> 0}.toMap
+    val multipliedCards: Map[Int,Int] = cardsWithWins.map{case(c,_) => c -> 1}.toMap
 
     @tailrec
     def cardMultiplier(cardsWithWins: Vector[(Int, Int)], multipliedCards: Map[Int,Int], totalNrOfCards: Int = 0): Int = cardsWithWins match {
         case Vector() => totalNrOfCards
         case (cardId, nrOfWins) +: rest => {
 
-            val nrOfCurrentCards: Int = 1 + multipliedCards(cardId)
+            val nrOfCurrentCards: Int = multipliedCards(cardId)
 
             val updatedMultipliedCards = (0 to nrOfWins).toVector
                 .filter(_ > 0)
