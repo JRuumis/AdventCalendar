@@ -70,7 +70,7 @@ object Day14Dish extends App {
                     loopSearcher.updated(inputGrid, currentCycle)
 
                 val loopLength: Option[Int] = if (loopFound) {
-                    //println(s"\tLoop found! Cycle ${currentCycle} matches with Cycle ${loopSearcher(inputGrid)}. Loop length: ${currentCycle - loopSearcher(inputGrid)}")
+                    println(s"\tLoop found! Cycle ${currentCycle} matches with Cycle ${loopSearcher(inputGrid)}. Loop length: ${currentCycle - loopSearcher(inputGrid)}")
                     Some(currentCycle - loopSearcher(inputGrid))
                 } else
                     None
@@ -82,7 +82,7 @@ object Day14Dish extends App {
                 } else
                     totalCycles
 
-                if (newTotalCycles == 0)
+                if (newTotalCycles == currentCycle)
                     inputGrid
                 else {
                     val nextGrid = inputGrid.cycle
