@@ -24,10 +24,12 @@ object Day18LavaductAlt extends App {
        val directionFromColour: Direction = parseDirection(rgb.last.toString)
     }
 
+    // Part One
     val directionsStepsPartOne: Vector[(Direction, Int)] = inputInstructions.map(i => (i.direction, i.steps))
     val areaPartOne: Option[Long] = getCoordsFromDirectionsWithSteps(directionsStepsPartOne).fullAreaManhattan
     println(s"Lava area is ${if(areaPartOne.isDefined) areaPartOne.get else "not defined. Is the polygon a Manhattan (orthogonal) polygon?"}")
 
+    // Part Two
     val directionsStepsPartTwo: Vector[(Direction, Int)] = inputInstructions.map(i => (i.colour.directionFromColour, i.colour.stepsFromColour.toInt))
     val areaPartTwo: Option[Long] = getCoordsFromDirectionsWithSteps(directionsStepsPartTwo).fullAreaManhattan
     println(s"Lava area from colour is ${if(areaPartTwo.isDefined) areaPartTwo.get else "not defined. Is the polygon a Manhattan (orthogonal) polygon?"}")
