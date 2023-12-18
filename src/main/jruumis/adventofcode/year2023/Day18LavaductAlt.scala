@@ -1,9 +1,7 @@
 package jruumis.adventofcode.year2023
 
 import jruumis.adventofcode.coordinates.Coordinates.getCoordsFromDirectionsWithSteps
-import jruumis.adventofcode.coordinates.{Coord, Coordinates, Direction, Down, Left, Right, Up}
-
-import scala.annotation.tailrec
+import jruumis.adventofcode.coordinates.{Coordinates, Direction, Down, Left, Right, Up}
 
 object Day18LavaductAlt extends App {
     val inputRaw: Vector[String] = scala.io.Source.fromFile("./Sources/2023/Day18Lavaduct.txt").getLines.toVector
@@ -14,7 +12,7 @@ object Day18LavaductAlt extends App {
         case "L" | "2" => Left
         case "R" | "0" => Right
     }
-    
+
     val inputInstructions: Vector[Instruction] = inputRaw.collect{
         case s"$dir $stepsString (#$colourString)" => Instruction(parseDirection(dir), stepsString.toInt, Colour(colourString))
     }
