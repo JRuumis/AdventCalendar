@@ -2,4 +2,5 @@
 /project/target/
 /target/
 /target/scala-2.13/classes/
-/src/Archive/year2023/
+/src/Archive/
+/Sources/2023/scapper.sc

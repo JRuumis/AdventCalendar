@@ -16,8 +16,6 @@ case class Coordinates(coords: Vector[Coord]) {
         }
     }
 
-    //lazy val polygon
-
     private lazy val coordsLoop: Vector[Coord] = if(coords.head == coords.last) coords else coords :+ coords.head
 
     lazy val isManhattanPolygon: Boolean = Coordinates.coordPairChecker( (a,b) => a isOrthogonalWith b, _ && _ , coordsLoop).getOrElse(false)
@@ -31,6 +29,23 @@ case class Coordinates(coords: Vector[Coord]) {
     lazy val fillAreaManhattan: Option[Long] = if(shoelaceAreaManhattan.isDefined && innerHalfAreaManhattan.isDefined) Some(shoelaceAreaManhattan.get - innerHalfAreaManhattan.get) else None
     lazy val borderAreaManhattan: Option[Long] = if(innerHalfAreaManhattan.isDefined && outerHalfAreaManhattan.isDefined) Some(innerHalfAreaManhattan.get + outerHalfAreaManhattan.get) else None
     lazy val fullAreaManhattan: Option[Long] = if(borderAreaManhattan.isDefined && fillAreaManhattan.isDefined) Some(borderAreaManhattan.get + fillAreaManhattan.get) else None
+
+    // IS POINT IN POLYGON:
+
+    /*
+    def is_point_in_polygon(point, polygon):
+        x, y = point
+        intersections = 0
+        for i in range(len(polygon)):
+            x1, y1 = polygon[i]
+            x2, y2 = polygon[(i + 1) % len(polygon)]
+            if ((y1 <= y < y2) or (y2 <= y < y1)) and (x > max(x1, x2)):
+                if x1 != x2:
+                    intersection_x = x1 + (y - y1) / (y2 - y1) * (x2 - x1)
+                    if x <= intersection_x:
+                        intersections += 1
+        return intersections % 2 == 1
+     */
 }
 object Coordinates {
     @tailrec
